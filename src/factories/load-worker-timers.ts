@@ -1,7 +1,7 @@
 import { TLoadWorkerTimersFactory, TWorkerTimers } from '../types';
-
+const Blob = require("cross-blob");
 let workerTimers: null | TWorkerTimers = null;
-
+globalThis.Blob = Blob;
 export const createLoadWorkerTimers: TLoadWorkerTimersFactory = (load, worker) => {
     return () => {
         if (workerTimers !== null) {
